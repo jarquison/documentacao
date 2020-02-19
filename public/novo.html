@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<!-- Write your comments here 
+<-->
+<html>
+    <head>
+        <title>Testes rápidos</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="style.css"/>
+        
+        
+    </head>
+
+    <body >
+   
+<script src="/__/firebase/7.8.2/firebase-analytics.js"></script>
+
+<!-- Initialize Firebase -->
+<script src="/__/firebase/init.js"></script>
+<script>
+  // Your web app's Firebase configuration
+
+  
+  var firebaseConfig = {
+    apiKey: "AIzaSyDXz1kKBpqnJtWg8w9zaXsiljRNaemFsc8",
+    authDomain: "crud-c0412.firebaseapp.com",
+    databaseURL: "https://crud-c0412.firebaseio.com",
+    projectId: "crud-c0412",
+    storageBucket: "crud-c0412.appspot.com",
+    messagingSenderId: "524366827570",
+    appId: "1:524366827570:web:85bbca9dd2959cd5c7ec2b"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+        
+
+        <header class="w3-container w3-teal" > <h1>Registro de testes rápidos</h1></header>
+        
+        <section>
+        <div class="w3-bar w3-border w3-light-grey">
+                <a href="index.html" class="w3-bar-item w3-button">Home</a>
+                <a href="novo.html" class="w3-bar-item w3-button">Novo</a>
+                <a href="consultar.html" class="w3-bar-item w3-button">Consultar</a>
+                <a href="#" class="w3-bar-item w3-button">Link 2</a>
+                <a href="#" class="w3-bar-item w3-button w3-green w3-right">Link 3</a>
+        </div>
+                    
+
+            <article >
+                    <div class="w3-container  w3-teal">
+                            <h4>Novo processo/problema</h4>
+                          </div>
+                           <form class="w3-container w3-card-4 w3-light-grey w3-text-blue w3-margin">
+                            <p>
+                                <select class="w3-select" name="option" id="nome_do_sistema">
+                                            <option value="" disabled selected>Selecione o sistema</option>
+                                            <option value="1">PEC</option>
+                                            <option value="2">Android</option>
+                                            <option value="3">Firebase</option>
+                                </select></p>
+                            <p>
+                            <label>Problema</label>
+                            <input class="w3-input" type="text" id="problema"></p>
+                            <p>
+                            <label>Descrição</label>
+                            <textarea  class="w3-input"   type="text" id="descricao">descição problema</textarea> </p>
+                            <label>Solução</label>
+                            <textarea class="w3-input" rows="5" type="text" id="solucao">escreva a solução do problema!</textarea></p>
+                            <label>Anexar imagens</label>
+                            <input class="w3-input" type="file" id="aquivos"></p>
+                            
+                            <p><button class="w3-btn w3-teal" onclick="salvar_teste()">SALVAR</button></p>
+                          </form>
+            </article>
+
+        </section>
+        <footer class="w3-container w3-teal w3-margin-top" > 
+                <h5>Jarquison</h5>
+                <p>Desenvolvedor</p>
+        </footer>
+
+
+        <script>
+                var bancoFirebaseRef = firebase.database().ref('documentacao/');
+                var id;
+           function salvar_teste() {
+                  var nome_do_sistema = document.getElementById('nome_do_sistema').value;
+                  var problema = document.getElementById('problema').value;
+                  var descricao = document.getElementById('descricao').value;
+                  var solucao = document.getElementById('solucao').value;
+                  
+                  var uid = firebase.database().ref().child('doc').push().key;
+                  var data = {
+                    id: uid,
+                    nome_do_sistema: nome_do_sistema,
+                    problema: problema,
+                    descricao: descricao,
+                    solucao: solucao
+                  }
+            
+                  var updates = {};
+                  updates['/documentacao/' + uid] = data;
+                  firebase.database().ref().update(updates);
+                  alert('documentação registrada');
+                }
+         </script>
+        
+    </body>
+</html>

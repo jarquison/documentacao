@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<!-- Write your comments here 
+<-->
+<html>
+
+<head>
+        <title>Testes rápidos</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="style.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="banco.js"></script>
+        <script src="testes.js"></script>
+
+</head>
+
+<body>
+        <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+        <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-app.js"></script>
+
+        <!-- Add Firebase products that you want to use -->
+        <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-database.js"></script>
+
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#config-web-app -->
+        <script>
+                // Your web app's Firebase configuration
+                var firebaseConfig = {
+                        apiKey: "AIzaSyDXz1kKBpqnJtWg8w9zaXsiljRNaemFsc8",
+                        authDomain: "crud-c0412.firebaseapp.com",
+                        databaseURL: "https://crud-c0412.firebaseio.com",
+                        projectId: "crud-c0412",
+                        storageBucket: "crud-c0412.appspot.com",
+                        messagingSenderId: "524366827570",
+                        appId: "1:524366827570:web:85bbca9dd2959cd5c7ec2b"
+                };
+                // Initialize Firebase
+                firebase.initializeApp(firebaseConfig);
+        </script>
+
+
+        <header class="w3-container w3-teal">
+                <h1>Registro de testes rápidos</h1>
+        </header>
+
+
+        <div class="w3-bar w3-border w3-light-grey">
+                <a href="index.html" class="w3-bar-item w3-button">Home</a>
+                <a href="novo.html" class="w3-bar-item w3-button">Novo</a>
+                <a href="consultar.html" class="w3-bar-item w3-button">Consultar</a>
+                <a href="#" class="w3-bar-item w3-button">Link 2</a>
+                <a href="#" class="w3-bar-item w3-button w3-green w3-right">Link 3</a>
+        </div>
+
+        <div class="w3-container">
+                <p>
+                        <button class="w3-btn w3-red w3-border w3-round-large" id="bt-listar" onclick="listar_teste()">LISTAR</button><br />
+                       
+                </p>
+                <input class="w3-btn w3-red w3-border w3-round-large" type="button" value="LISTAR" onclick=""/>
+                <input class="w3-btn w3-red w3-border w3-round-large" type="button" value="LIMPAR" onclick=""/>
+
+                <table id="tabela_lista_insumo" class="w3-table w3-card-4 " style="width:80%">
+                        <tr class="w3-teal">
+                                <td>Id</td>
+                                <td>Lote</td>
+                                <td>Nome</td>
+                                <td>Quantidade</td>
+                                <td>Ação</td>
+
+                        </tr>
+                </table>
+
+        </div>
+
+        <footer class="w3-container w3-teal w3-margin-top">
+                <h5>Jarquison</h5>
+                <p>Desenvolvedor</p>
+        </footer>
+        
+
+</body>
+
+</html>
